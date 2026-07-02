@@ -56,7 +56,7 @@ int const Code::checkIncorrect(Code const &guess) {
         if (tempGuess.code[i] != -1)
         {
             // See if there are any correct values in incorrect positions
-            auto it = std::find(tempCode.code.begin(), tempCode.code.end(), tempGuess.code[i]);
+            auto it = find(tempCode.code.begin(), tempCode.code.end(), tempGuess.code[i]);
             // If find did find a matching value
             if (it != tempCode.code.end())
             {
