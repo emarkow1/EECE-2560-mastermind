@@ -13,6 +13,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -22,7 +23,7 @@ class Code {
     Code(int n, int m);
     Code(int n, int m, vector<int> t);
     void random();
-    int const checkCorrect(Code &guess);
+    int const checkCorrect(Code const &guess);
     int const checkIncorrect(Code const &guess);
     
     private:
