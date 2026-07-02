@@ -16,6 +16,7 @@ int main(int argc, const char * argv[]) {
     Code guess(5, 3, x);
     //test.random();
     cout << test.checkCorrect(guess) << endl;
+    cout << test.checkIncorrect(guess) << endl;
     return EXIT_SUCCESS;
 }
 
