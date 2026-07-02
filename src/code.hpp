@@ -23,7 +23,7 @@ class Code {
     Code(int n, int m, vector<int> t);
     void random();
     int const checkCorrect(Code &guess);
-    int const checkIncorrect(Code &guess);
+    int const checkIncorrect(Code const &guess);
     
     private:
     int n;
