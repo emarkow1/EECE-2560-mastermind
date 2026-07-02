@@ -5,7 +5,7 @@
 //  Created by Jake Berman on 7/1/26.
 //
 
-#include <algorithm>
+
 
 #include "code.hpp"
 
@@ -14,22 +14,27 @@ Code::Code(int n, int m) : n(n), m(m) {
 Code::Code(int n, int m, vector<int> t) : n(n), m(m), code(t){
 }
 
-
+// Generate a random code that is n digits long and is between 0 and m-1
 void Code::random() {
+    //Randomly generate a number for each digit in the code and making it n length
     for (int i = 0; i < n; i++) {
         code.push_back(rand() % m);
     }
+    //print out the code for testing
     for (int i = 0; i < n; i++) {
         cout << code[i];
     }
 };
-int const Code::checkCorrect(Code &guess){
+// Check how many digits are correct and in the correct position
+int const Code::checkCorrect(Code const &guess){
     int amountCorrect = 0;
-    for (int i = 0; i < n; i++) {
+    //check each digit in the code to see if it is the same as the guess in the same possition
+    for (int i = 0; i < n; i++) { 
         if (code[i] == guess.code[i]) {
             amountCorrect += 1;
         }
     }
+    //return int value of how many are correct
     return amountCorrect;
 };
 int const Code::checkIncorrect(Code const &guess) {
