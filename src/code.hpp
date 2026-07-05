@@ -4,41 +4,71 @@
 //
 //  Created by Jake Berman on 7/1/26.
 //
+// This header file declares the 'Code' class, including its private member
+// variables and public member functions.
+// It also includes the libraries needed within the 'Code' class declaration.
 
-//ensures header file is included only once
-#ifndef code_hpp //if not defined, then define (prevents redefinition of code_hpp)
+
+// ensures header file is included only once
+// if not defined, then define (prevents redefinition of code_hpp)
+#ifndef code_hpp
 #define code_hpp
 
+// includes C standard input/output library (I AM UNSURE IF WE NEED THIS (we have iostream). GO OVER TOGETHER) <-------
 #include <stdio.h>
+
+// includes vector container library
 #include <vector>
+
+// includes functions such as rand() within library
 #include <cstdlib>
+
+// includes time() so we can use along with rand() for random number generator
 #include <ctime>
+
+// includes input/output streams
 #include <iostream>
+
+// includes the find() algorithm which is utilized to compare "Code" object values
 #include <algorithm>
-#include <stdio.h> //includes C standard input/output library (I AM UNSURE IF WE NEED THIS (we have iostream). GO OVER TOGETHER)
-#include <vector> //includes vector container library
-#include <cstdlib> //includes functions such as rand() within library
-#include <ctime> //includes time() so we can use along with rand() for random number generator
-#include <iostream> //includes input/output streams
-#include <algorithm> //COME BACK TO THIS
 
-using namespace std; //defines usage of std library globally
+// defines usage of std library globally
+using namespace std;
+
+// creating class "Code"
+class Code
+{
+public:
+
+    // in a public section. these public member functions can be called outside
+    // of class
+
+    // creates a new object that stores n and m (length and range)
+    Code(int n, int m);
+
+    // creates a Code object that stores the already formed randomly generated
+    // secret code vector with length and range
+    Code(int n, int m, vector<int> t);
+
+    // uses random function to generate the secret code
+    void random();
+
+    // compares secret code with "Code" class object "guess" and returns the
+    // number of digits that are correctly present and in the right position
+    int const checkCorrect(Code const& guess);
+
+    // compares secret code with "Code" class object "guess" and returns the
+    // number of digits that are correctly present but in the wrong position
+    int const checkIncorrect(Code const& guess);
+
+private:
     
-class Code { //creating class 'code'
-    public: //in a public section. these public member functions can be called outside of class
-        Code(int n, int m); //creates a new object that stores n and m (length and range)
-        Code(int n, int m, vector<int> t); //code object stores the already formed randomly generated secret code vector with length and range
-        void random(); //uses random function to generate the secret code
-        int const checkCorrect(Code const& guess); 
-        int const checkIncorrect(Code const& guess);
+    // ensures n, m, and secret code cannot be accessed directly by the user
+    // by keeping them in the private section of the class.
+    int n;
+    int m;
+    vector<int> code;
 
-    private: //ensures n, m, and secret code can not be accessed by user and hidden in a private session.
-        int n;
-        int m;
-        vector<int> code;
-
-};
-
-//the vector cant be private because we need to input the guess unless we add a function to do that 
+}; // end Code
 
 #endif /* code_hpp */
