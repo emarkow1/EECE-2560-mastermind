@@ -99,7 +99,7 @@ int const Code::checkIncorrect(Code const& guess)
 
             // See if there are any correct values in incorrect positions using
             // find() in order to seek out specific digit within sequence
-            auto it = std::find(tempCode.code.begin(), tempCode.code.end(),
+            auto it = find(tempCode.code.begin(), tempCode.code.end(),
                 tempGuess.code[i]);
 
             // If find did find a matching value
