@@ -46,7 +46,7 @@ void Code::random()
 // checkCorrect checks how many digits are correct and in the correct position.
 // initializes checkCorrect function of class 'code' that will return an int
 // value of r1 (amount correct) using secret code and user guess
-int const Code::checkCorrect(Code const& guess)
+int Code::checkCorrect(Code const& guess) const
 {
 
     // initializes default value for amount of numbers guessed correctly (0)
@@ -70,7 +70,7 @@ int const Code::checkCorrect(Code const& guess)
 // checkIncorrect counts the number of correct numbers in incorrect positions.
 // initializes checkIncorrect function of class 'code' that will return an int
 // value of amount digits that are correct but in wrong sequence
-int const Code::checkIncorrect(Code const& guess)
+int Code::checkIncorrect(Code const& guess) const
 {
 
     // copy of original code to modify

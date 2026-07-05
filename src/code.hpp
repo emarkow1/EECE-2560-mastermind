@@ -55,11 +55,11 @@ public:
 
     // compares secret code with "Code" class object "guess" and returns the
     // number of digits that are correctly present and in the right position
-    int const checkCorrect(Code const& guess);
+    int checkCorrect(Code const& guess) const;
 
     // compares secret code with "Code" class object "guess" and returns the
     // number of digits that are correctly present but in the wrong position
-    int const checkIncorrect(Code const& guess);
+    int checkIncorrect(Code const& guess) const;
 
 private:
     
