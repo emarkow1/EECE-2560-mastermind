@@ -65,8 +65,8 @@ private:
     
     // ensures n, m, and secret code cannot be accessed directly by the user
     // by keeping them in the private section of the class.
-    int n;
-    int m;
+    const int n;
+    const int m;
     vector<int> code;
 
 }; // end Code
