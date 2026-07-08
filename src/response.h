@@ -11,14 +11,14 @@
 class response {
     public:
     response(int correct, int incorrect);
-    int getCorrect() {return corret;};
+    int getCorrect() {return correct;};
     int getIncorrect() {return incorrect;};
-    void setCorrect(int correctValue) {corret = correctValue;};
+    void setCorrect(int correctValue) {correct = correctValue;};
     void setIncorrect(int incorrectValue) {incorrect = incorrectValue;};
     
     private:
-             int corret;
-             int incorrect;
+        int correct;
+        int incorrect;
 };
 
 #endif

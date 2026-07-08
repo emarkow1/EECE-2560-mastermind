@@ -8,5 +8,5 @@
 #include "response.h"
 
 response::response(int correct, int incorrect) : correct(correct), incorrect(incorrect) {
-    
 }
+
