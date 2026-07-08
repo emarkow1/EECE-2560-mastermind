@@ -13,8 +13,8 @@ class response {
     response(int correct, int incorrect);
     int getCorrect() {return corret;};
     int getIncorrect() {return incorrect;};
-    void setCorrect(int correct);
-    void setIncorrect(int incorrect);
+    void setCorrect(int correctValue) {corret = correctValue;};
+    void setIncorrect(int incorrectValue) {incorrect = incorrectValue;};
     
     private:
              int corret;
