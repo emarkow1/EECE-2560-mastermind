@@ -20,16 +20,14 @@
 // includes vector container library
 #include <vector>
 
-// includes functions such as rand() within library
-#include <cstdlib>
-
-// includes time() so we can use along with rand() for random number generator
-#include <ctime>
+#include <random>
+// include random library
 
 // includes input/output streams
 #include <iostream>
 
-// includes the find() algorithm which is utilized to compare "Code" object values
+// includes the find() algorithm 
+// which is utilized to compare "Code" object values
 #include <algorithm>
 
 // defines usage of std library globally
