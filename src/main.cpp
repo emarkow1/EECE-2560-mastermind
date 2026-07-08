@@ -4,16 +4,15 @@
 //
 //  Created by Jake Berman on 7/1/26.
 //
-// This file creates the "Code" class objects while calling the member functions
-// to execute the mastermind game.
+// This file creates the "Code" class objects while calling the member
+// functions to execture the mastermind game
 
 #include <iostream>
 #include "code.hpp"
 
 // main function that creates the objects of the "Code" class and executes the
-// mastermind game. The parameters argc and argv are what allow command line
-// arguments to be passed to the program. WE DONT USE THEM? CHECK WITH GROUP <<--------------
-int main(int argc, const char* argv[])
+// mastermind game.
+int main()
 {
 
     // seeding the random number generator with current time
