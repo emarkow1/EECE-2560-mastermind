@@ -14,10 +14,6 @@
 // mastermind game.
 int main()
 {
-
-    // seeding the random number generator with current time
-    srand(time(NULL));
-
     // sets the secretCode's length to 5 and range to 7
     Code secretCode(5, 7);
 
