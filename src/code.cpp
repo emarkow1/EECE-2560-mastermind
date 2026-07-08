@@ -25,15 +25,18 @@ Code::Code(int n, int m, vector<int> t) : n(n), m(m), code(t)
 // generate a random code that is n digits long and is between 0 and m-1
 void Code::random()
 {
+    random_device rd;
+    uniform_int_distribution<int> dist(0, m-1);
+    mt19937 generator(rd());
 
     // randomly generate a number for each digit in the code and making it n
     // length
     for (int i = 0; i < n; i++)
     {
 
-        // adds newly random generated integer to the end of the vector
-        // (growing it until i = n)
-        code.push_back(rand() % m);
+        // adds newly random generated integer to the end of the vector (growing
+        // it until i = n)
+        code.push_back(dist(generator));
     }
 
     // print out the code for testing
