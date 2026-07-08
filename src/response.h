@@ -8,9 +8,9 @@
 #ifndef response_h
 #define response_h
 
-class response {
+class Response {
     public:
-    response(int correct, int incorrect);
+    Response response(int correct, int incorrect);
     int getCorrect() {return correct;};
     int getIncorrect() {return incorrect;};
     void setCorrect(int correctValue) {correct = correctValue;};
