@@ -9,11 +9,23 @@
 
 #include <iostream>
 #include "code.hpp"
+#include "mastermind.h"
+#include "response.h"
 
 // main function that creates the objects of the "Code" class and executes the
 // mastermind game.
 int main()
 {
+    int n, m;
+    cout << "Welcome to Mastermind! Please enter the code length desired: ";
+    cin >> n;
+    cout << " and the the range of digits you'd like: ";
+    cin >> m;
+    
+    Mastermind game1(n, m);
+    game1.playGame();
+
+    /*
     // sets the secretCode's length to 5 and range to 7
     Code secretCode(5, 7);
 
@@ -45,6 +57,6 @@ int main()
     // Code guess(5, 3, x);
     // test.random();
     // cout << test.checkCorrect(guess) << endl;
-
+    */
     return EXIT_SUCCESS;
 } // end main

@@ -8,6 +8,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_executable(mastermind
     src/main.cpp
     src/code.cpp
+    src/mastermind.cpp
+    src/response.cpp
  )
 
 target_include_directories(mastermind PRIVATE src)
