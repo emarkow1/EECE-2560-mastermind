@@ -51,6 +51,9 @@ public:
     // uses random function to generate the secret code
     void random();
 
+    // prints the secret code
+    void print() const;
+
     // compares secret code with "Code" class object "guess" and returns the
     // number of digits that are correctly present and in the right position
     int checkCorrect(Code const& guess) const;

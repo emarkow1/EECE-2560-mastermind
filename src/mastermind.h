@@ -16,11 +16,13 @@ class Mastermind {
 
     Mastermind();
 
+    void printCode() const;
+    
     Code humanGuess();
 
-    Response getResponse(Code &guess);
+    Response getResponse(const Code &guess);
 
-    bool isSolved(Code &guess);
+    bool isSolved(const Response &response) const;
 
     void playGame();
 

@@ -46,14 +46,14 @@ void Code::random()
         // it until i = n)
         code.push_back(dist(generator));
     }
+} // end random
 
-    // print out the code for testing
+void Code::print() const {
     for (int i = 0; i < n; i++)
     {
         cout << code[i];
     }
-} // end random
-
+}
 // checkCorrect checks how many digits are correct and in correct position.
 // initializes checkCorrect function of class 'code' that will return an int
 // value of r1 (amount correct) using secret code and user guess
