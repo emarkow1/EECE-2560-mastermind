@@ -46,7 +46,7 @@ void Code::random()
     }
 } // end random
 
-// checkCorrect checks how many digits are correct and in the correct position.
+// checkCorrect checks how many digits are correct and in correct position.
 // initializes checkCorrect function of class 'code' that will return an int
 // value of r1 (amount correct) using secret code and user guess
 int Code::checkCorrect(Code const& guess) const
@@ -55,13 +55,13 @@ int Code::checkCorrect(Code const& guess) const
     // initializes default value for amount of numbers guessed correctly (0)
     int amountCorrect = 0;
 
-    // check each digit in the code to see if it is the same as the guess in the
-    // same position
+    // check each digit in the code to see if it is the same as the guess
+    // in the same position
     for (int i = 0; i < n; i++)
     {
         if (code[i] == guess.code[i])
         {
-            // if correct guess, add 1 to amountCorrect to imply correct choice
+            // if correct, add 1 to amountCorrect to imply correct choice
             amountCorrect += 1;
         }
     }
@@ -100,7 +100,7 @@ int Code::checkIncorrect(Code const& guess) const
         if (tempGuess.code[i] != -1)
         {
 
-            // See if there are any correct values in incorrect positions using
+            // See if there are any correct values in wrong positions using
             // find() in order to seek out specific digit within sequence
             auto it = find(tempCode.code.begin(), tempCode.code.end(),
                 tempGuess.code[i]);
@@ -110,8 +110,8 @@ int Code::checkIncorrect(Code const& guess) const
             {
                 amountIncorrect++;
 
-                // Ensure no double counts by replacing value in tempCode with -1
-                // (as it will not be a proper user input).
+                // Ensure no double counts by replacing value in tempCode with
+                // -1 (as it will not be a proper user input).
                 *it = -1;
 
                 // Replace value in tempGuess with -1

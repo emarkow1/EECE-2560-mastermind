@@ -14,7 +14,7 @@
 #ifndef code_hpp
 #define code_hpp
 
-// includes C standard input/output library (I AM UNSURE IF WE NEED THIS (we have iostream). GO OVER TOGETHER) <-------
+// includes C standard input/output library
 #include <stdio.h>
 
 // includes vector container library
@@ -38,8 +38,8 @@ class Code
 {
 public:
 
-    // in a public section. these public member functions can be called outside
-    // of class
+    // in a public section. these public member functions can be called
+    // outside of class
 
     // creates a new object that stores n and m (length and range)
     Code(int n, int m);
@@ -62,7 +62,7 @@ public:
 private:
     
     // ensures n, m, and secret code cannot be accessed directly by the user
-    // by keeping them in the private section of the class.
+    // through keeping them in the private section of the class.
     const int n;
     const int m;
     vector<int> code;
