@@ -51,9 +51,25 @@ Response Mastermind::getResponse(const Code &guess) {
 
 
 bool Mastermind::isSolved(const Response &response) const{
-    if (response.getCorrect() == n) {
-        return true;
-    } else {
-        return false;
+    Response correct(n, 0);
+    return correct == response;
+}
+
+void Mastermind::playGame() {
+    secretCode.random();
+    cout << "The secret code is: ";
+    printCode();
+    cout << endl;
+    for (int x = 0; x < 10; x++) {
+        Code breakerGuess = humanGuess();
+        Response guessResponse = getResponse(breakerGuess);
+        if (isSolved(guessResponse)) {
+            cout << "You solved the code! Congratulations!" << endl;
+            return;
+        } else {
+            cout << guessResponse << endl;
+        }
     }
+    cout << "Unfortunately you did not break the code. The secret code was: ";
+    printCode();
 }

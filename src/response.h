@@ -24,4 +24,7 @@ class Response {
         int incorrect;
 };
 
+bool operator==(const Response &lhs, const Response &rhs);
+ostream &operator<<(ostream &os, const Response &response);
+
 #endif
