@@ -15,7 +15,8 @@
 // main function that creates the objects of the "Code" class and executes the
 // mastermind game.
 int main()
-{
+{  
+    //NEED TYPE CHECKING HERE
     int n, m;
     cout << "Welcome to Mastermind! Please enter the code length desired: ";
     cin >> n;
