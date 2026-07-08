@@ -25,8 +25,16 @@ Code::Code(int n, int m, vector<int> t) : n(n), m(m), code(t)
 // generate a random code that is n digits long and is between 0 and m-1
 void Code::random()
 {
+
+    // seed generator. pulling randomness from computer OS to start sequence
     random_device rd;
+    
+    // ensures random generated numbers are whole integers and have equal
+    // chance to be picked.
     uniform_int_distribution<int> dist(0, m-1);
+
+    // calculates the random numbers using mathematical formula. initializes
+    // with rd seed to ensure no repeated pattern each time
     mt19937 generator(rd());
 
     // randomly generate a number for each digit in the code and making it n
