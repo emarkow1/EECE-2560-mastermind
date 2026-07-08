@@ -10,7 +10,7 @@
 
 class Response {
     public:
-    Response response(int correct, int incorrect);
+    Response(int correct, int incorrect);
     int getCorrect() {return correct;};
     int getIncorrect() {return incorrect;};
     void setCorrect(int correctValue) {correct = correctValue;};
