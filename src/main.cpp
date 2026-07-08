@@ -22,7 +22,7 @@ int main()
 
     // generates secret code using random function
     secretCode.random();
-
+    secretCode.print();
     // all the sample code guesses required for Part A of the Project
     Code guess1(5, 7, { 5, 0, 3, 2, 6 });
     Code guess2(5, 7, { 2, 1, 2, 2, 2 });
