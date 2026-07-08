@@ -1,6 +1,6 @@
 //
 //  code.cpp
-//  Proj1Mastermind
+//  1-satbermacmar-1b
 //
 //  Created by Jake Berman on 7/1/26.
 //
