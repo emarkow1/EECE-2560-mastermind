@@ -20,8 +20,8 @@
 // includes vector container library
 #include <vector>
 
-#include <random>
 // include random library
+#include <random>
 
 // includes input/output streams
 #include <iostream>

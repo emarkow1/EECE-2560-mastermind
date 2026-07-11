@@ -1,8 +1,5 @@
-//
 //  code.cpp
 //  1-satbermacmar-1b
-//
-//  Created by Jake Berman on 7/1/26.
 //
 // This file contains the implementation of the "Code" class member functions.
 // It also defines the constructors that initialize
@@ -16,7 +13,7 @@ Code::Code(int n, int m) : n(n), m(m)
 {
 }
 
-// second constructor for when secret code is known. stores secret code to the
+// second constructor for when a code is known. stores an int vector to the
 // code object's member variable along with n and m
 Code::Code(int n, int m, vector<int> t) : n(n), m(m), code(t)
 {
