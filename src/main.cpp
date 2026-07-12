@@ -11,6 +11,8 @@
 #include "code.hpp"
 #include "mastermind.h"
 #include "response.h"
+#include <limits>
+using namespace std;
 
 // main function that creates the objects of the "Code" class and executes the
 // mastermind game.
@@ -19,9 +21,19 @@ int main()
     //NEED TYPE CHECKING HERE
     int n, m;
     cout << "Welcome to Mastermind! Please enter the code length desired: ";
-    cin >> n;
+    while (!(cin >> n) || n <= 0){
+        cout << "Please enter a valid integer above 0 for your desired code length: ";
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
     cout << " and the the range of digits you'd like: ";
-    cin >> m;
+    while (!(cin >> m) || m <= 0){
+        cout << "Please enter a valid integer above 0 for your desired range of digits: ";
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
     
     Mastermind game1(n, m);
     game1.playGame();
