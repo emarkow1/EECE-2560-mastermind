@@ -29,8 +29,34 @@ void Mastermind::printCode() const
     cout << endl;
 }
 
+Code Mastermind::humanGuess()
+{
+    vector<int> guess;
+    int guessDigit; 
+    
+    for (int i = 0; i < n; ++i) {
+        cout << "Enter digit " << (i + 1) << " of your guess: ";
+        cin >> guessDigit;
+        if (!cin) {
+            cout << "Invalid input. Please enter an integer." << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            --i; 
+            continue;
+        }
+        if (guessDigit < 0 || guessDigit >= m) {
+            cout << "Invalid digit. Please enter a digit between 0 and " << (m - 1) << "." << endl;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            --i; 
+            continue;
+        }
+        guess.push_back(guessDigit);
+    }
+    return Code(n, m, guess);
+}
 // Defines humanGuess function to obtain n-length guess from user and returns
 // it in the form of a Code object using a for loop to iterate over a vector.
+/*
 Code Mastermind::humanGuess()
 {
     vector<int> guess;
@@ -77,7 +103,7 @@ Code Mastermind::humanGuess()
     //         }
         return Code(n,m,guess);
 }
-
+*/
 // Defines getResponse function to compare user's guess to the secret code
 // using Code class' checkCorrect and checkIncorrect functions.
 // Returns a Response object containing number correct & incorrect.
