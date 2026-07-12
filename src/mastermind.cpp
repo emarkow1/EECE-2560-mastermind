@@ -7,6 +7,8 @@
 
 
 #include "mastermind.h"
+#include <string>
+#include <sstream>
 
 // initializer list with inputted n and m (represneting length and range). 
 // Stores the integer values of n and m to the code object's. Then creates
@@ -33,12 +35,47 @@ Code Mastermind::humanGuess()
 {
     vector<int> guess;
     int guessDigit; 
-    for (int x = 0; x < n; x++) {
+    bool cont = false;
+    string userInput;
+
+    while (!cont)
+    {
         cout << "Enter your guess: ";
-        cin >> guessDigit;
-        guess.push_back(guessDigit);
+
+        getline(cin >> ws, userInput);
+
+        istringstream input(userInput);
+
+        guess.clear();
+
+        while (input >> guessDigit)
+        {
+            guess.push_back(guessDigit);
+        }
+
+        if (guess.size() == n)
+        {
+            cont = true;
+        }
+        else
+        {
+            cout << "Please enter a guess of "<< n << " numbers." << "\n";
+        }
     }
-    return Code(n,m,guess);
+    // while(!cont) 
+    // {
+    //     cin >> guessDigit;
+    //     guess.push_back(guessDigit);
+    //     if (guess.size() == n)
+    //     {
+    //         cont = true;
+    //     }
+    //         else
+    //         {
+    //             cout << "Please enter guess of " << n << "numbers long. " ;
+    //             guess.clear();
+    //         }
+        return Code(n,m,guess);
 }
 
 // Defines getResponse function to compare user's guess to the secret code
