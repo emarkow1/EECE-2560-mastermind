@@ -46,6 +46,7 @@ Code Mastermind::humanGuess()
         }
         if (guessDigit < 0 || guessDigit >= m) {
             cout << "Invalid digit. Please enter a digit between 0 and " << (m - 1) << "." << endl;
+            cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
             --i; 
             continue;
