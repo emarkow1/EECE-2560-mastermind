@@ -7,11 +7,17 @@
 // This file creates the "Code" class objects while calling the member
 // functions to execture the mastermind game
 
+// includes C standard input/output library
 #include <iostream>
+
+//Include the necessary header files for the "Code" and "Mastermind" classes, as well as the "Response" class.
 #include "code.hpp"
 #include "mastermind.h"
 #include "response.h"
+
+// Included for input validation functions
 #include <limits>
+
 using namespace std;
 
 // main function that creates the objects of the "Code" class and executes the
