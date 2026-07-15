@@ -29,14 +29,22 @@ void Mastermind::printCode() const
     cout << endl;
 }
 
+// Defines humanGuess function to obtain n-length guess from user and returns
+// it in the form of a Code object using a for loop to iterate over a vector.
 Code Mastermind::humanGuess()
 {
     vector<int> guess;
     int guessDigit; 
     
+    //For loop to iterate in a digits for a guess and add them to the guess vector.
     for (int i = 0; i < n; ++i) {
         cout << "Enter digit " << (i + 1) << " of your guess: ";
+
+        // cin the user input
         cin >> guessDigit;
+
+        //check if the input is an integer and if it isn't send an error message and 
+        // clear the input buffer and decrement i to repeate the input ask for the same digit
         if (!cin) {
             cout << "Invalid input. Please enter an integer." << endl;
             cin.clear();
@@ -44,6 +52,9 @@ Code Mastermind::humanGuess()
             --i; 
             continue;
         }
+
+        // check if the input is within the valid range of m -1
+        // Again clear the input buffer and decrement i to repeat the input
         if (guessDigit < 0 || guessDigit >= m) {
             cout << "Invalid digit. Please enter a digit between 0 and " << (m - 1) << "." << endl;
             cin.clear();
@@ -51,13 +62,15 @@ Code Mastermind::humanGuess()
             --i; 
             continue;
         }
+
+        // if the input is valid add the digit to the guess vector
         guess.push_back(guessDigit);
     }
     return Code(n, m, guess);
 }
-// Defines humanGuess function to obtain n-length guess from user and returns
-// it in the form of a Code object using a for loop to iterate over a vector.
-/*
+
+
+/* SECOND WAY TO IMPLEMENT 
 Code Mastermind::humanGuess()
 {
     vector<int> guess;
