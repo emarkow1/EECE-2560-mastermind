@@ -107,16 +107,27 @@ bool Mastermind::isSolved(const Response &response) const
 // either the codemaker or the codebreaker has won.
 void Mastermind::playGame()
 {
+
+    // Generated a random secret code.
     secretCode.random();
     cout << "The secret code is: ";
+
+    // Print the secret code for grading purposes.
     printCode();
     cout << endl;
 
+    //For loop to iterate over 10 guesses from the user 
     for (int x = 0; x < 10; x++)
     {
+
+        // Get the user's guess
         Code breakerGuess = humanGuess();
+
+        // Get the response for the user's guess
         Response guessResponse = getResponse(breakerGuess);
 
+
+        // Check if the user's guess is correct
         if (isSolved(guessResponse))
         {
             cout << "You solved the code! Congratulations!" << endl;
@@ -128,6 +139,8 @@ void Mastermind::playGame()
         }
     } // end for
 
+    // If the user did not solve the code in 10 guesses, print out a message
+    // and the secret code.
     cout << "Unfortunately you did not break the code. The secret code was: ";
     printCode();
 } // end playGame
