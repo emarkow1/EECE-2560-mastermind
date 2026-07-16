@@ -4,8 +4,8 @@
 // This file contains the declaration of the "mastermind" class
 // which stores integers n and m (the length and range).
 
-// ensures header file is included only once
-// if not defined, then define (prevents redefinition of mastermind_hpp)
+// ensures header file is included only once if not defined, then define 
+// (prevents redefinition of mastermind_hpp)
 #ifndef mastermind_h
 #define mastermind_h
 
@@ -22,15 +22,17 @@
 using namespace std;
 
 // creating class "Mastermind"
-class Mastermind {
+class Mastermind
+{
     public:
+
         // Constructor 1 
         // Creates a new object that stores n and m (length and range)
         Mastermind(int n, int m);
 
         // Constructor 2
         // Creates a new object with no given n and m (length and range)
-        // Default n = 5, m = 10
+        // Default n = 5, m = 7
         Mastermind();
 
         // prints secret code for easy comparison checks
@@ -53,12 +55,13 @@ class Mastermind {
 
     
     private:
+
         // ensures secretCode, n, and m cannot be accessed directly by the user
         // through keeping them in a the private section of the class
         Code secretCode;
         const int n;
         const int m;
-};
+}; // end Mastermind
 
 
 #endif

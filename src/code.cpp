@@ -2,8 +2,8 @@
 //  1-satbermacmar-1b
 //
 // This file contains the implementation of the "Code" class member functions.
-// It also defines the constructors that initialize
-// the member variables of the class.
+// It also defines the constructors that initialize the member variables of the
+// class
 
 #include "code.hpp"
 
@@ -28,7 +28,7 @@ void Code::random()
     
     // ensures random generated numbers are whole integers and have equal
     // chance to be picked.
-    uniform_int_distribution<int> dist(0, m-1);
+    uniform_int_distribution<int> dist(0, m - 1);
 
     // calculates the random numbers using mathematical formula. initializes
     // with rd seed to ensure no repeated pattern each time
@@ -39,33 +39,39 @@ void Code::random()
     for (int i = 0; i < n; i++)
     {
 
-        // adds newly random generated integer to the end of the vector (growing
-        // it until i = n)
+        // adds newly random generated integer to the end of the vector
+        // (growing it until i = n)
         code.push_back(dist(generator));
     }
 } // end random
 
-void Code::print() const {
+// prints every value that is stored in a Code class object
+void Code::print() const
+{
+
     for (int i = 0; i < n; i++)
     {
         cout << code[i];
     }
 }
+
 // checkCorrect checks how many digits are correct and in correct position.
 // initializes checkCorrect function of class 'code' that will return an int
-// value of r1 (amount correct) using secret code and user guess
+// value of (amount correct) using secret code and user guess
 int Code::checkCorrect(Code const& guess) const
 {
 
     // initializes default value for amount of numbers guessed correctly (0)
     int amountCorrect = 0;
 
-    // check each digit in the code to see if it is the same as the guess
-    // in the same position
+    // check each digit in the code to see if it is the same as the guess in
+    // the same position
     for (int i = 0; i < n; i++)
     {
+
         if (code[i] == guess.code[i])
         {
+
             // if correct, add 1 to amountCorrect to imply correct choice
             amountCorrect += 1;
         }
@@ -92,6 +98,7 @@ int Code::checkIncorrect(Code const& guess) const
     // First replace all correct positions with -1 to indicate a correct guess
     for (int i = 0; i < n; i++)
     {
+
         if (code[i] == tempGuess.code[i])
         {
             tempCode.code[i] = -1;
@@ -102,6 +109,7 @@ int Code::checkIncorrect(Code const& guess) const
     // Now check for incorrect positions, ignoring entries now marked as -1
     for (int i = 0; i < n; i++)
     {
+
         if (tempGuess.code[i] != -1)
         {
 
@@ -121,9 +129,9 @@ int Code::checkIncorrect(Code const& guess) const
 
                 // Replace value in tempGuess with -1
                 tempGuess.code[i] = -1;
-            }
-        } //end if
-    }
+            } // end if
+        } // end if
+    } // end for
 
     return amountIncorrect;
 } // end checkIncorrect

@@ -1,9 +1,9 @@
-//  mastermind.cpp
-//  1-satbermacmar-1b
-
-// This file contains the implementation of the "Mastermind" class member functions.
 // 
-// the member variables of the class.
+// mastermind.cpp
+// 1-satbermacmar-1b
+//
+// This file contains the implementation of the "Mastermind" class member 
+// functions and constructors.
 
 
 #include "mastermind.h"
@@ -13,12 +13,18 @@
 // initializer list with inputted n and m (represneting length and range). 
 // Stores the integer values of n and m to the code object's. Then creates
 // secretCode object using n and m, and stores it to the code object's.
-Mastermind::Mastermind(int n, int m) : secretCode(n, m), n(n), m(m) {}
+Mastermind::Mastermind(int n, int m)
+    : secretCode(n, m), n(n), m(m)
+{
+}
 
 // initializer list without inputted n and m (representing length and range).
 // Uses default values of n = 5 and m = 7 and stores them to the code object's.
 // Then creates secretCode object using n and m, and stores it to code object's
-Mastermind::Mastermind() : secretCode(5, 7), n(5), m(7) {}
+Mastermind::Mastermind()
+    : secretCode(5, 7), n(5), m(7) 
+{
+}
 
 // Defines printCode function to print the secret code for grading
 // Uses Code object's print function to print secret code
@@ -36,16 +42,20 @@ Code Mastermind::humanGuess()
     vector<int> guess;
     int guessDigit; 
     
-    //For loop to iterate in a digits for a guess and add them to the guess vector.
-    for (int i = 0; i < n; ++i) {
+    // For loop to iterate in a digits for a guess and add them to the guess
+    // vector.
+    for (int i = 0; i < n; ++i)
+    {
         cout << "Enter digit " << (i + 1) << " of your guess: ";
 
         // cin the user input
         cin >> guessDigit;
 
-        //check if the input is an integer and if it isn't send an error message and 
-        // clear the input buffer and decrement i to repeate the input ask for the same digit
-        if (!cin) {
+        // check if the input is an integer and if it isn't send an error
+        // message and clear the input buffer and decrement i to repeate the
+        // input ask for the same digit.
+        if (!cin)
+        {
             cout << "Invalid input. Please enter an integer." << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
@@ -53,10 +63,12 @@ Code Mastermind::humanGuess()
             continue;
         }
 
-        // check if the input is within the valid range of m -1
+        // check if the input is within the valid range of 0 to m -1
         // Again clear the input buffer and decrement i to repeat the input
-        if (guessDigit < 0 || guessDigit >= m) {
-            cout << "Invalid digit. Please enter a digit between 0 and " << (m - 1) << "." << endl;
+        if (guessDigit < 0 || guessDigit >= m)
+        {
+            cout << "Invalid digit. Please enter a digit between 0 and "
+                 << (m - 1) << "." << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
             --i; 
@@ -65,63 +77,17 @@ Code Mastermind::humanGuess()
 
         // if the input is valid add the digit to the guess vector
         guess.push_back(guessDigit);
-    }
+    } // end for
+
     return Code(n, m, guess);
-}
+} // end humanGuess
 
 
-/* SECOND WAY TO IMPLEMENT 
-Code Mastermind::humanGuess()
-{
-    vector<int> guess;
-    int guessDigit; 
-    bool cont = false;
-    string userInput;
-
-    while (!cont)
-    {
-        cout << "Enter your guess: ";
-
-        getline(cin >> ws, userInput);
-
-        istringstream input(userInput);
-
-        guess.clear();
-
-        while (input >> guessDigit)
-        {
-            guess.push_back(guessDigit);
-        }
-
-        if (guess.size() == n)
-        {
-            cont = true;
-        }
-        else
-        {
-            cout << "Please enter a guess of "<< n << " numbers." << "\n";
-        }
-    }
-    // while(!cont) 
-    // {
-    //     cin >> guessDigit;
-    //     guess.push_back(guessDigit);
-    //     if (guess.size() == n)
-    //     {
-    //         cont = true;
-    //     }
-    //         else
-    //         {
-    //             cout << "Please enter guess of " << n << "numbers long. " ;
-    //             guess.clear();
-    //         }
-        return Code(n,m,guess);
-}
-*/
 // Defines getResponse function to compare user's guess to the secret code
 // using Code class' checkCorrect and checkIncorrect functions.
 // Returns a Response object containing number correct & incorrect.
-Response Mastermind::getResponse(const Code &guess) {
+Response Mastermind::getResponse(const Code &guess)
+{
     int correct = secretCode.checkCorrect(guess);
     int incorrect = secretCode.checkIncorrect(guess);
     return Response(correct, incorrect);
@@ -130,7 +96,8 @@ Response Mastermind::getResponse(const Code &guess) {
 // Defines isSolved function to determine if the secret code has been found by
 // creating a new Response object containing n correct and 0 incorrect then
 // comparing it to the response object generated from the user's guess.
-bool Mastermind::isSolved(const Response &response) const{
+bool Mastermind::isSolved(const Response &response) const
+{
     Response correct(n, 0);
     return correct == response;
 }
@@ -138,21 +105,29 @@ bool Mastermind::isSolved(const Response &response) const{
 // Defines playGame function to generate and print a secret code, and then
 // iteratively get a guess from the player and print the response until
 // either the codemaker or the codebreaker has won.
-void Mastermind::playGame() {
+void Mastermind::playGame()
+{
     secretCode.random();
     cout << "The secret code is: ";
     printCode();
     cout << endl;
-    for (int x = 0; x < 10; x++) {
+
+    for (int x = 0; x < 10; x++)
+    {
         Code breakerGuess = humanGuess();
         Response guessResponse = getResponse(breakerGuess);
-        if (isSolved(guessResponse)) {
+
+        if (isSolved(guessResponse))
+        {
             cout << "You solved the code! Congratulations!" << endl;
             return;
-        } else {
+        }
+        else
+        {
             cout << guessResponse << endl;
         }
-    }
+    } // end for
+
     cout << "Unfortunately you did not break the code. The secret code was: ";
     printCode();
-}
+} // end playGame

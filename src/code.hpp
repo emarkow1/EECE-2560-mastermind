@@ -5,12 +5,12 @@
 //  Created by Jake Berman on 7/1/26.
 //
 // This header file declares the 'Code' class, including its private member
-// variables and public member functions.
-// It also includes the libraries needed within the 'Code' class declaration.
+// variables and public member functions. It also includes the libraries needed
+// within the 'Code' class declaration.
 
 
-// ensures header file is included only once
-// if not defined, then define (prevents redefinition of code_hpp)
+// ensures header file is included only once. if not defined, then define
+// (prevents redefinition of code_hpp)
 #ifndef code_hpp
 #define code_hpp
 
@@ -48,7 +48,7 @@ public:
     // secret code vector with length and range
     Code(int n, int m, vector<int> t);
 
-    // uses random function to generate the secret code
+    // uses random function to generate and store secret code (0 through m-1)
     void random();
 
     // prints the secret code

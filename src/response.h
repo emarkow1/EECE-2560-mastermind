@@ -11,36 +11,51 @@
 #ifndef response_h
 #define response_h
 
-// includes C standard input/output library
+// includes C++ standard input/output streamlibrary
 #include <iostream>
 
 // defines usage of std library globally
 using namespace std;
 
 // creating class "Response"
-class Response {
+class Response
+{
     public:
+
         // creates a new object that stores # correct and incorrect 
         Response(int correct, int incorrect);
 
         // returns number correct stored in the Response object
-        int getCorrect() const {return correct;}; 
+        int getCorrect() const 
+        {
+            return correct;
+        }
 
         // returns number incorrect stored in the Response object
-        int getIncorrect() const {return incorrect;}
+        int getIncorrect() const
+        {
+            return incorrect;
+        }
 
         // defines a new value for the number correct in the Response object
-        void setCorrect(int correctValue) {correct = correctValue;};
+        void setCorrect(int correctValue)
+        {
+            correct = correctValue;
+        }
 
         // defines a new value for the number incorrect in the Response object
-        void setIncorrect(int incorrectValue) {incorrect = incorrectValue;};
+        void setIncorrect(int incorrectValue)
+        {
+            incorrect = incorrectValue;
+        }
     
     private:
-        // ensures the number correct and incorrect cannot be access directly
+
+        // ensures the number correct and incorrect cannot be accessed directly
         // by the user through keeping them in the private section of the class
         int correct;
         int incorrect;
-};
+}; //end Response
 
 // Overload the operator == for comparison between Response objects
 bool operator==(const Response &lhs, const Response &rhs);
